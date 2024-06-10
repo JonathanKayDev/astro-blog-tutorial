@@ -15,7 +15,9 @@ const {title = "Default Title", description = "Default Description"} = Astro.pro
     <MainHead {title} {description}></MainHead>
 	<body>
         <Nav></Nav>
-        <slot>Default Text</slot>
+        <main>
+            <slot>Default Text</slot>
+        </main>
         <Footer></Footer>
 	</body>
 </html>
