@@ -2,10 +2,11 @@
 // library import
 import { Image } from 'astro:assets';
 
-const { title, date, category, author, image} = Astro.props;
-
 // utils imports
 import {slugify, formatDate} from '../js/utils';
+
+const { title, date, category, author, image} = Astro.props;
+
 ---
 
 
@@ -19,4 +20,6 @@ import {slugify, formatDate} from '../js/utils';
         • {formatDate(date)}</p>
     </div>
     <Image src={image.src} alt={image.alt} width={1200} height={600} class='hero-image'/>
+    <!-- <Image src="https://www.mottmac.com/download/file/39014?defaultfile=%2fdefaultimages%2fdefaultimage.png&thumbnail=false&cultureid=127&useLarge=true" alt={image.alt} width={800} height={400} quality="max" class='hero-image'/> -->
+     <!-- <img src="https://www.mottmac.com/download/file/39014?defaultfile=%2fdefaultimages%2fdefaultimage.png&thumbnail=false&cultureid=127&useLarge=true"/> -->
 </header>
