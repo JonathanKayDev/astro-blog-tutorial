@@ -1,0 +1,38 @@
+---
+// component imports
+import MainLayout from '../../layouts/MainLayout.astro';
+
+// utils imports
+import { formatBlogPosts, slugify } from '../../js/utils';
+
+const allPosts = await Astro.glob("../blog/*.md");
+const formattedPosts = formatBlogPosts(allPosts);
+const allCategories = formattedPosts.map((cat) => cat.frontmatter.category.toLowerCase()).flat();
+
+const processedCats = allCategories.reduce((acc, category) => {
+    // check if the category exists in the accumulator
+    const value = acc[category] || 0;
+
+    return {
+        ...acc,
+        [category]: value + 1
+    }
+}, {})
+
+const showCount = true;
+---
+
+<MainLayout title="Categories" description="Categories Index">
+    <section class="container" aria-label="Categories Index">
+        <h1 class="h1">Categories</h1>
+        <ul class="categories">
+            {
+                Object.entries(processedCats).map(([key, val]) => (
+                    <li>
+                        <a class="badge" href={`/category/${slugify(key)}`}>{key} {`(${val})`}</a>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+</MainLayout>
