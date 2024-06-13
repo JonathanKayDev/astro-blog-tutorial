@@ -24,12 +24,12 @@ const formattedPosts = formatBlogPosts(allPosts, {limit: 3});
 			<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere alias mollitia eaque veritatis ad, explicabo adipisci consectetur natus rem.</p>
 			<Link href="/about/" style="secondary" text="About Me" />
 		</div>
-		</section>
+	</section>
 	<section class="container" aria-label="New Blog Posts">
         <h2 class="h1">New Blog Posts</h2>
         <div class="post-container">
             {
-                formattedPosts.map((post) => <PostCard frontmatter={post.frontmatter} url={post.url} tagType="h3"/>)
+                formattedPosts.map((post) => <PostCard client:visible frontmatter={post.frontmatter} url={post.url} tagType="h3"/>)
             }
         </div>
     </section>
