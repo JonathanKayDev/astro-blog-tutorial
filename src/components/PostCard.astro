@@ -22,7 +22,7 @@ const {title, date, author, image, description, category} = frontmatter;
             <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
         </small>
         <a href={url} tabindex="-1" aria-hidden="true">
-            <Image src={image.src} alt={image.alt} width={400} height={250}/>
+            <Image src={image.src} alt={image.alt} width={400} height={250} transition:name=`img-${title}`/>
         </a>
         <div class="content">
             <div>
