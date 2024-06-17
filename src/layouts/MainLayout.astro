@@ -8,11 +8,11 @@ import Nav from '../components/Nav.astro';
 // style import
 import "../styles/global.css";
 
-const {title = "Default Title", description = "Default Description"} = Astro.props;
+const {title = "Default Title", description = "Default Description", image, frontmatter, robots} = Astro.props;
 ---
 
 <html lang="en">
-    <MainHead {title} {description}></MainHead>
+    <MainHead {title} {description} {image} {frontmatter} {robots}></MainHead>
 	<body>
         <Nav></Nav>
         <main>
