@@ -19,7 +19,7 @@ const {title, date, author, image, description, category} = frontmatter;
 
 <article class="card">
         <small>
-            <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
+            <a href={`/category/${slugify(category)}/`} class="badge" transition:name=`category-${title}`>{category}</a>
         </small>
         <a href={url} tabindex="-1" aria-hidden="true">
             <Image src={image.src} alt={image.alt} width={400} height={250} transition:name=`img-${title}`/>
@@ -27,7 +27,7 @@ const {title, date, author, image, description, category} = frontmatter;
         <div class="content">
             <div>
                 <Tag class="h3">
-                    <a href={url}>{title}</a>
+                    <a href={url} transition:name=`title-${title}`>{title}</a>
                 </Tag>
                 <small>by <a href={`/author/${slugify(author)}/`}>{author}</a>
                 • {formatDate(date)}</small>
